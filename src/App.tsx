@@ -145,11 +145,11 @@ function App() {
 
 
     return (
-        <div className={'flex justify-center p-2 bg-gray-100 h-screen items-center'} dir={'rtl'}>
-            <div className="max-w-2xl flex-1  max-h-[95vh] overflow-y-auto flex  flex-col justify-center   ">
-                <div className="w-full text-center p-2  ">Simple Chat bot</div>
+        <div className={'flex justify-center  bg-gray-100  items-center'} dir={'rtl'}>
+            <div className="max-w-2xl flex-1 p-2 max-h-screen overflow-y-auto flex  flex-col justify-center   ">
+                <div className="w-full text-center p  ">Simple Chat bot</div>
                 <div
-                    className="relative min-h-[90vh] bg-card text-card-foreground flex flex-col gap-6 rounded-xl border p-2 shadow-sm">
+                    className="relative min-h-[85vh] bg-card text-card-foreground flex flex-col gap-6 rounded-xl border p-2 shadow-sm">
                     <div className="flex-1"></div>
                     <div className="  flex flex-col overflow-auto " ref={dataRef}>
                         {data.map((msg) => (

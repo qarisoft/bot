@@ -32,9 +32,9 @@ function App() {
     }, [])
 
     const [data, setData] = useState<Msg[]>(getData())
-    const updateData=useCallback(()=>{
-        setData(getData())
-    },[getData])
+    // const updateData=useCallback(()=>{
+    //     setData(getData())
+    // },[getData])
 
     const saveMsg:(isBot:boolean,msg:string)=>Msg = useCallback((isBot:boolean,msg: string) => {
         const msG:Msg = {
@@ -47,8 +47,6 @@ function App() {
         setData((d)=>{
             return [...d, msG]
         })
-        // window.localStorage.setItem(StorageName, JSON.stringify())
-        // updateData()
         return msG
 
     }, [])
@@ -112,17 +110,21 @@ function App() {
 
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        const msg = e.currentTarget.elements.namedItem('msg')?.value
+        const msg_ = e.currentTarget.elements.namedItem('msg') as HTMLInputElement | undefined
+        console.log(msg_?.value)
+        if (msg_ == undefined) {return}
+
+        const msg = msg_.value
         e.currentTarget.reset()
-        if (msg) {
+        if ( msg !=undefined ) {
 
             const newMsg= addCustomerMsg(msg)
             try {
                 setLoading(true)
                 const res = await ask(msg)
-
                 if (res != undefined) {
                     addBotMsg(res)
+
                 }
             } catch (e) {
                 console.log('\n\n ', e)
@@ -131,6 +133,7 @@ function App() {
                 setLoading(false)
             }
         }
+
 
     }
     const dataRef = useRef<HTMLDivElement>(null)
@@ -164,7 +167,7 @@ function App() {
                     <form className="flex gap-1 items-center" onSubmit={onSubmit}>
                         <Button className="">send</Button>
                         {/*<Input className={''}/>*/}
-                        <Input name={'msg'}/>
+                        <Input id={'msg'} name={'msg'}/>
                     </form>
                 </div>
 

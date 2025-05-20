@@ -32,9 +32,6 @@ function App() {
     }, [])
 
     const [data, setData] = useState<Msg[]>(getData())
-    // const updateData=useCallback(()=>{
-    //     setData(getData())
-    // },[getData])
 
     const saveMsg:(isBot:boolean,msg:string)=>Msg = useCallback((isBot:boolean,msg: string) => {
         const msG:Msg = {
@@ -80,7 +77,8 @@ function App() {
             "Content-Type": "application/json"
         }
         const enhanced_prompt = `
-    You are a customer service agent for ${YOUR_BUSINESS_NAME}.
+    You are a customer service agent for 'Qarisoft Software Company', arabic name: ${YOUR_BUSINESS_NAME}. 
+    Contact information: +966 54 585 6814
     The customer asks: ${question}
 
     `

@@ -11,7 +11,7 @@ import {Input} from "@/components/ui/input.tsx";
 
 const DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
 const DEEPSEEK_API_KEY = "sk-cdebb38846164c0489af7fc036e873b2"
-const YOUR_BUSINESS_NAME = 'salah'
+const YOUR_BUSINESS_NAME = 'قاري سوفت للبرمجيات'
 const StorageName = 'data4'
 type Msg = {
     isBot: boolean,

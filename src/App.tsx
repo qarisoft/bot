@@ -177,7 +177,7 @@ function App() {
 
 
 function Message({msg, className}: { msg:Msg,  className?: string }) {
-    return <div className={'w-fit   p-2 ' + (msg.isBot ? 'mr-auto' : 'ml-auto')}>
+    return <div className={'w-fit  max-w-[calc(100vw-50px)]  p-2 ' + (msg.isBot ? 'mr-auto' : 'ml-auto')}>
         <div
             className={'bg-ard text-card-foreground  flex flex-col gap-6 rounded-xl border p-4 shadow-sm   ml-auto' + ' '
                 + (msg.isBot? 'rounded-bl-none' : 'rounded-br-none') + ' '+(msg.isBot?'':'  bg-blue-50 ') + className
